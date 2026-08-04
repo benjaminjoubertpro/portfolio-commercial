@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benjamin Joubert — Alternance développement commercial 2026</title>
+<meta name="description" content="Benjamin Joubert, 23 ans, Le Mans. Candidat en alternance Bachelor Responsable de Développement Commercial, rentrée 2026. Deux ans d'alternance déjà réalisés, une expérience commerciale de terrain.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#0A0A0C;
+  --bg-2:#0E0E12;
+  --surface:#141418;
+  --surface-2:#1A1A21;
+  --surface-3:#212129;
+  --line:rgba(255,255,255,.07);
+  --line-2:rgba(255,255,255,.13);
+  --text:#FFFFFF;
+  --text-2:#9B9BA6;
+  --text-3:#66666F;
+  --peach:#F2C094;
+  --peach-2:#E9A96E;
+  --peach-dim:rgba(242,192,148,.12);
+  --green:#3ECF8E;
+  --green-dim:rgba(62,207,142,.13);
+  --violet:#6E7BD8;
+  --f:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --wrap:1180px;
+  --r:18px;
+  --r-s:12px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{font-family:var(--f);background:var(--bg);color:var(--text);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* grain : casse le banding des aplats sombres et des halos */
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.032;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input{font-family:inherit}
+
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 30px}
+.sec{padding:112px 0;position:relative;overflow:hidden}
+.sec.alt{background:var(--bg-2)}
+.sec.glow::before{
+  content:'';position:absolute;top:-140px;left:50%;transform:translateX(-50%);
+  width:760px;height:420px;pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(110,123,216,.10),transparent 66%);
+}
+
+/* ── nav ── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:60;
+  background:rgba(10,10,12,.78);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.nav-in{max-width:var(--wrap);margin:0 auto;padding:14px 30px;display:flex;align-items:center;gap:30px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:600;font-size:15px;letter-spacing:-.015em;margin-right:auto}
+.brand-mark{
+  width:28px;height:28px;border-radius:8px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--peach),var(--peach-2));
+  color:#1A1208;font-size:11px;font-weight:700;letter-spacing:-.02em;
+}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{font-size:14px;color:var(--text-2);transition:color .2s}
+.nav-links a:hover,.nav-links a.on{color:var(--text)}
+.nav-cta{
+  background:linear-gradient(135deg,var(--peach),var(--peach-2));color:#1A1208;
+  padding:9px 19px;border-radius:100px;font-size:13.5px;font-weight:600;white-space:nowrap;
+  transition:transform .2s,box-shadow .2s;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(242,192,148,.22)}
+.progress{height:1px;background:linear-gradient(90deg,var(--violet),var(--peach));width:0;transition:width .1s linear}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* ── hero ── */
+.hero{padding:156px 0 76px;position:relative;overflow:hidden}
+.hero::before{
+  content:'';position:absolute;top:calc(var(--my,10%) - 320px);left:calc(var(--mx,80%) - 320px);
+  width:640px;height:640px;pointer-events:none;border-radius:50%;
+  background:radial-gradient(circle,rgba(242,192,148,.11),transparent 62%);
+  transition:top .5s cubic-bezier(.22,.8,.28,1),left .5s cubic-bezier(.22,.8,.28,1);
+}
+.hero::after{
+  content:'';position:absolute;top:40px;left:-200px;width:560px;height:560px;pointer-events:none;
+  background:radial-gradient(circle,rgba(110,123,216,.13),transparent 64%);
+}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:74px;align-items:center}
+
+.pill{
+  display:inline-flex;align-items:center;gap:9px;
+  background:rgba(255,255,255,.04);border:1px solid var(--line-2);
+  padding:7px 16px 7px 12px;border-radius:100px;margin-bottom:32px;
+  font-size:12.5px;color:var(--text-2);
+}
+.pill i{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blip 2.8s infinite;font-style:normal}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.3}}
+
+h1{font-weight:300;font-size:clamp(37px,4.8vw,62px);line-height:1.08;letter-spacing:-.032em;margin-bottom:26px}
+h1 em{
+  font-style:normal;font-weight:400;
+  background:linear-gradient(100deg,var(--peach) 12%,var(--violet) 96%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-p{font-size:17px;color:var(--text-2);max-width:53ch;line-height:1.62;font-weight:300;margin-bottom:16px}
+.hero-p strong{color:var(--text);font-weight:500}
+.hero-thread{
+  font-size:15px;color:var(--text-2);max-width:53ch;line-height:1.6;font-weight:300;
+  border-left:2px solid var(--peach);padding-left:16px;margin-bottom:34px;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:100px;
+  font-size:14.5px;font-weight:600;transition:transform .2s,box-shadow .2s,background .2s;
+}
+.btn-p{background:linear-gradient(135deg,var(--peach),var(--peach-2));color:#1A1208}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(242,192,148,.24)}
+.btn-s{border:1px solid var(--line-2);color:var(--text)}
+.btn-s:hover{background:rgba(255,255,255,.05);transform:translateY(-2px)}
+
+.hero-fig{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line-2);background:var(--surface)}
+.hero-fig img{aspect-ratio:3/4;object-fit:cover;width:100%}
+.fig-cap{
+  position:absolute;left:0;right:0;bottom:0;padding:16px 18px;
+  background:linear-gradient(to top,rgba(10,10,12,.94),transparent);
+  display:flex;justify-content:space-between;align-items:baseline;
+}
+.fig-cap b{font-size:14px;font-weight:600}
+.fig-cap span{font-size:12px;color:var(--text-2)}
+
+.idbar{
+  position:relative;z-index:2;margin-top:66px;padding-top:30px;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(4,1fr);gap:26px;
+}
+.idbar div{padding-left:20px;border-left:1px solid var(--line)}
+.idbar div:first-child{padding-left:0;border-left:none}
+.idbar b{display:block;font-size:21px;font-weight:600;letter-spacing:-.028em;margin-bottom:3px}
+.idbar span{font-size:12.5px;color:var(--text-3);line-height:1.4;display:block}
+
+@media(max-width:940px){
+  .hero-in{grid-template-columns:1fr;gap:44px}
+  .hero-fig{max-width:290px}
+}
+@media(max-width:640px){
+  .hero{padding-top:132px}
+  .idbar{grid-template-columns:repeat(2,1fr);gap:22px}
+  .idbar div:nth-child(3){padding-left:0;border-left:none}
+}
+@media(max-width:520px){
+  .hero-btns{flex-direction:column;align-items:stretch}
+  .btn{justify-content:center}
+}
+
+/* ── titres de section ── */
+.sec-hd{margin-bottom:52px;max-width:660px}
+.sec-hd.split{max-width:none;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;align-items:end}
+.lab{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);font-weight:500;margin-bottom:16px;display:block;position:relative;padding-bottom:10px;width:fit-content}
+.lab::after{content:'';position:absolute;left:0;bottom:0;height:1px;width:22px;background:var(--peach);
+  transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.22,.8,.28,1) .15s}
+.rv.in .lab::after,.sec-hd.in .lab::after{transform:scaleX(1)}
+h2{font-weight:300;font-size:clamp(27px,3.3vw,40px);line-height:1.16;letter-spacing:-.028em}
+.sec-hd p{margin-top:18px;color:var(--text-2);font-size:15.5px;line-height:1.62;font-weight:300}
+.sec-hd.split p{margin-top:0;padding-bottom:5px}
+@media(max-width:860px){.sec-hd.split{grid-template-columns:1fr;gap:20px;align-items:start}}
+
+/* ── le virage : le fil rouge ── */
+.turn{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.turn-c{padding:34px 30px;border-right:1px solid var(--line);position:relative}
+.turn-c:last-child{border-right:none}
+.turn-c.now{background:linear-gradient(160deg,rgba(242,192,148,.07),rgba(110,123,216,.05))}
+.turn-k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);font-weight:500;margin-bottom:18px;display:block}
+.turn-c.now .turn-k{color:var(--peach)}
+.turn-c h3{font-size:19px;font-weight:500;letter-spacing:-.02em;margin-bottom:14px;line-height:1.3}
+.turn-c p{font-size:14.5px;color:var(--text-2);line-height:1.65;font-weight:300}
+.turn-c p + p{margin-top:12px}
+.turn-c strong{color:var(--text);font-weight:500}
+@media(max-width:900px){
+  .turn{grid-template-columns:1fr}
+  .turn-c{border-right:none;border-bottom:1px solid var(--line)}
+  .turn-c:last-child{border-bottom:none}
+}
+
+/* ── parcours : timeline ── */
+.tl{position:relative;padding-left:34px}
+.tl::before{content:'';position:absolute;left:0;top:10px;bottom:10px;width:1px;background:var(--line)}
+.ti{position:relative;display:grid;grid-template-columns:160px minmax(0,1fr);gap:40px;padding:26px 0;transition:background .25s}
+.ti + .ti{border-top:1px solid var(--line)}
+.ti::before{
+  content:'';position:absolute;left:-38px;top:34px;width:9px;height:9px;border-radius:50%;
+  background:var(--surface-3);border:2px solid var(--bg-2);z-index:2;
+}
+.ti.now::before{background:var(--peach);box-shadow:0 0 0 5px rgba(242,192,148,.14)}
+.ti::after{
+  content:'';position:absolute;left:-24px;right:-24px;top:0;bottom:0;
+  border-radius:14px;background:rgba(255,255,255,0);transition:background .25s;z-index:0;
+}
+.ti:hover::after{background:rgba(255,255,255,.022)}
+.ti > *{position:relative;z-index:1}
+.ti-d{font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);font-weight:500;padding-top:4px}
+.ti.now .ti-d{color:var(--peach)}
+.ti-r{font-size:19px;font-weight:500;letter-spacing:-.022em;margin-bottom:5px;line-height:1.3}
+.ti-o{font-size:13.5px;color:var(--text-3);margin-bottom:13px}
+.ti-p{font-size:14.5px;color:var(--text-2);line-height:1.65;font-weight:300;max-width:62ch}
+@media(max-width:760px){
+  .tl{padding-left:26px}
+  .ti{grid-template-columns:1fr;gap:10px;padding:24px 0}
+  .ti::before{left:-30px;top:30px}
+  .ti-d{padding-top:0}
+}
+
+/* ── compétences transférables : le tableau de correspondance ── */
+.xfer{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.xfer-hd{
+  display:grid;grid-template-columns:minmax(0,1fr) 46px minmax(0,1fr);
+  padding:16px 28px;background:var(--surface-2);border-bottom:1px solid var(--line);
+  font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-3);font-weight:500;
+}
+.xfer-hd span:last-child{color:var(--peach)}
+.xr{
+  display:grid;grid-template-columns:minmax(0,1fr) 46px minmax(0,1fr);
+  padding:19px 28px;border-bottom:1px solid var(--line);align-items:center;
+}
+.xr:last-child{border-bottom:none}
+.xr-from{font-size:14.5px;color:var(--text-2);line-height:1.5;font-weight:300}
+.xr-ar{display:grid;place-items:center;color:var(--text-3);font-size:15px}
+.xr-to{font-size:14.5px;color:var(--text);line-height:1.5;font-weight:400}
+.xr-to b{font-weight:600;color:var(--peach);display:block;font-size:13px;letter-spacing:.01em;margin-bottom:3px}
+@media(max-width:760px){
+  .xfer-hd{display:none}
+  .xr{grid-template-columns:1fr;gap:10px;padding:20px 22px}
+  .xr-ar{justify-items:start;transform:rotate(90deg);width:20px}
+  .xr-from::before{content:'AVANT · ';font-size:10px;letter-spacing:.12em;color:var(--text-3)}
+}
+
+/* ── montée en charge ── */
+.ramp{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;position:relative;margin-top:40px}
+.ramp li{position:relative;padding-top:26px}
+.ramp li::before{
+  content:'';position:absolute;top:0;left:0;width:9px;height:9px;border-radius:50%;
+  background:var(--surface-3);border:1px solid var(--line-2);
+}
+.ramp li:first-child::before{background:var(--peach);border-color:var(--peach)}
+.ramp::after{content:'';position:absolute;top:4px;left:4px;right:4px;height:1px;background:var(--line);z-index:-1}
+.ramp-t{display:block;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--peach);font-weight:500;margin-bottom:10px}
+.ramp-d{display:block;font-size:14px;color:var(--text-2);line-height:1.6;font-weight:300}
+@media(max-width:820px){
+  .ramp{grid-template-columns:1fr;gap:0}
+  .ramp li{padding:0 0 26px 26px}
+  .ramp li::before{top:5px;left:0}
+  .ramp::after{top:8px;left:4px;right:auto;bottom:26px;width:1px;height:auto}
+}
+
+/* ── convictions ── */
+.conv-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:44px}
+.conv{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px 24px;position:relative}
+.conv-n{display:block;font-size:11.5px;font-weight:600;color:var(--peach);letter-spacing:.1em;margin-bottom:16px}
+.conv h4{font-size:16.5px;font-weight:500;line-height:1.34;margin-bottom:11px;letter-spacing:-.015em}
+.conv p{font-size:13.5px;color:var(--text-2);line-height:1.58;font-weight:300}
+@media(max-width:900px){.conv-grid{grid-template-columns:1fr}}
+
+/* ── objections ── */
+.objs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.obj{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:28px 26px}
+.obj.key{border-color:rgba(242,192,148,.28);background:linear-gradient(150deg,rgba(242,192,148,.06),var(--surface) 62%)}
+.obj-k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);font-weight:500;margin-bottom:14px;display:block}
+.obj.key .obj-k{color:var(--peach)}
+.obj h3{font-size:17px;font-weight:600;letter-spacing:-.018em;margin-bottom:13px;line-height:1.35;color:var(--text)}
+.obj p{font-size:14.5px;color:var(--text-2);line-height:1.65;font-weight:300}
+.obj strong{color:var(--text);font-weight:500}
+.obj.wide{grid-column:1 / -1}
+@media(max-width:820px){.objs{grid-template-columns:1fr}}
+
+/* ── simulateur ── */
+.tool{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+.t-hd{padding:30px 32px 26px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:26px;flex-wrap:wrap}
+.t-hd .lab{color:var(--peach);margin-bottom:12px}
+.t-hd h3{font-size:23px;font-weight:600;letter-spacing:-.025em;margin-bottom:8px}
+.t-hd p{font-size:14.5px;color:var(--text-2);max-width:52ch;line-height:1.55;font-weight:300}
+.seg{display:inline-flex;background:var(--bg-2);border:1px solid var(--line);border-radius:100px;padding:4px;gap:2px}
+.seg button{
+  background:none;border:none;color:var(--text-2);cursor:pointer;
+  padding:9px 17px;border-radius:100px;font-size:13px;font-weight:500;transition:all .2s;
+}
+.seg button.on{background:var(--peach);color:#1A1208}
+.t-bd{display:grid;grid-template-columns:minmax(0,1fr) 46%}
+.t-in{padding:30px 32px}
+.t-out{background:var(--bg-2);padding:30px 32px;border-left:1px solid var(--line)}
+.t-ft{padding:15px 32px;border-top:1px solid var(--line);background:var(--bg-2)}
+.t-ft .lab{margin-bottom:0;font-size:10.5px;color:var(--text-3)}
+
+.fld{margin-bottom:24px}
+.fld:last-child{margin-bottom:0}
+.fld-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;gap:14px}
+.fld label{font-size:14px;color:var(--text-2);font-weight:300}
+.fld-val{display:inline-flex;align-items:baseline;gap:3px}
+.fld-val input{
+  background:none;border:none;color:var(--text);font-size:19px;font-weight:600;
+  text-align:right;width:88px;font-variant-numeric:tabular-nums;letter-spacing:-.02em;
+}
+.fld-val input:focus{outline:none;color:var(--peach)}
+.fld-val .u{font-size:13px;color:var(--text-3);font-weight:400}
+.fld-note{font-size:12px;color:var(--text-3);margin-top:8px;line-height:1.5;font-weight:300}
+
+input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:3px;
+  background:var(--surface-3);outline:none;cursor:pointer;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;width:15px;height:15px;border-radius:50%;
+  background:var(--peach);cursor:pointer;border:2px solid var(--bg);
+  box-shadow:0 1px 6px rgba(0,0,0,.5);transition:transform .15s;
+}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.18)}
+input[type=range]::-moz-range-thumb{
+  width:15px;height:15px;border-radius:50%;background:var(--peach);
+  cursor:pointer;border:2px solid var(--bg);
+}
+
+.adv{border-top:1px solid var(--line);padding-top:20px;margin-top:24px}
+.adv summary{
+  cursor:pointer;font-size:13px;color:var(--text-2);list-style:none;
+  display:flex;align-items:center;gap:9px;user-select:none;
+}
+.adv summary::-webkit-details-marker{display:none}
+.adv summary::before{
+  content:'+';width:18px;height:18px;border-radius:5px;background:var(--surface-3);
+  display:grid;place-items:center;font-size:13px;color:var(--peach);flex:none;
+}
+.adv[open] summary::before{content:'−'}
+.adv-body{padding-top:22px}
+
+.res-k{color:var(--text-3)!important;margin-bottom:14px}
+.res-hero{padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:22px}
+.res-hero .n{font-size:52px;font-weight:600;letter-spacing:-.045em;line-height:1.05;color:var(--peach);font-variant-numeric:tabular-nums}
+.res-hero .n small{font-size:.4em;font-weight:500;color:var(--text-2);margin-left:4px}
+.res-hero .c{font-size:13.5px;color:var(--text-2);line-height:1.55;font-weight:300;margin-top:14px}
+.state{display:inline-flex;align-items:center;gap:7px;padding:5px 13px;border-radius:100px;font-size:12px;font-weight:500;margin-top:13px}
+.state i{width:6px;height:6px;border-radius:50%}
+.state.good{background:var(--green-dim);color:var(--green)}
+.state.good i{background:var(--green)}
+.state.ok{background:var(--peach-dim);color:var(--peach)}
+.state.ok i{background:var(--peach)}
+.state.warn{background:rgba(217,139,139,.13);color:#D98B8B}
+.state.warn i{background:#D98B8B}
+
+.bev{margin-bottom:22px}
+.bev-k{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--text-3);font-weight:500;margin-bottom:14px}
+.bev svg{width:100%;height:auto;overflow:visible}
+.bev-leg{display:flex;gap:18px;margin-top:10px}
+.bev-leg span{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;color:var(--text-3)}
+.bev-leg i{width:14px;height:2px;border-radius:2px}
+.bev-leg i.g{background:var(--peach)}
+.bev-leg i.c{background:rgba(255,255,255,.34)}
+
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-s);overflow:hidden;margin-bottom:20px}
+.res-cell{background:var(--bg-2);padding:15px 17px}
+.res-cell .k{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:7px;line-height:1.35}
+.res-cell .v{font-size:19px;font-weight:600;letter-spacing:-.025em;line-height:1.1}
+.res-cell .v small{font-size:.55em;color:var(--text-2);margin-left:2px}
+.res-rows{border-top:1px solid var(--line)}
+.res-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.res-row:last-child{border-bottom:none}
+.res-row .l{color:var(--text-3);font-weight:300}
+.res-row .v{font-weight:500}
+.tnum{font-variant-numeric:tabular-nums}
+
+@media(max-width:900px){
+  .t-bd{grid-template-columns:1fr}
+  .t-out{border-left:none;border-top:1px solid var(--line)}
+  .t-hd{align-items:flex-start}
+}
+@media(max-width:520px){
+  .t-in,.t-out,.t-hd,.t-ft{padding-left:22px;padding-right:22px}
+  .seg{width:100%}
+  .seg button{flex:1;padding:9px 8px;font-size:12.5px}
+  .res-grid{grid-template-columns:1fr}
+}
+
+/* ── ce que je cherche ── */
+.seek{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:44px}
+.seek-c{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 22px}
+.seek-k{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--peach);font-weight:500;margin-bottom:12px}
+.seek-c p{font-size:14px;color:var(--text-2);line-height:1.6;font-weight:300}
+@media(max-width:820px){.seek{grid-template-columns:1fr}}
+
+/* ── secteur ── */
+.geo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:center}
+.geo-m{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.geo-m svg{width:100%;height:auto}
+.geo-txt p{font-size:15px;color:var(--text-2);line-height:1.65;font-weight:300;margin-bottom:26px}
+.geo-list{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
+.geo-list div{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line);font-size:13.5px}
+.geo-list .d{color:var(--text-3);font-variant-numeric:tabular-nums}
+.geo-list .far .d{color:var(--peach)}
+.geo-leg{display:flex;gap:22px;margin-top:20px;padding-top:18px;border-top:1px solid var(--line);flex-wrap:wrap}
+.geo-leg span{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--text-3)}
+.geo-leg i{width:7px;height:7px;border-radius:50%}
+@media(max-width:900px){
+  .geo{grid-template-columns:1fr;gap:32px}
+  .geo-list{grid-template-columns:1fr}
+}
+
+/* ── contact ── */
+.cta{padding:104px 0;background:var(--bg-2);border-top:1px solid var(--line);position:relative;overflow:hidden}
+.cta::before{
+  content:'';position:absolute;bottom:-260px;left:50%;transform:translateX(-50%);
+  width:840px;height:520px;pointer-events:none;
+  background:radial-gradient(ellipse at center,rgba(242,192,148,.10),transparent 66%);
+}
+.cta-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:center}
+.cta h2{margin-bottom:18px}
+.cta > .wrap > .cta-in > div > p{color:var(--text-2);font-size:15.5px;line-height:1.62;font-weight:300;margin-bottom:28px;max-width:44ch}
+.cta-btns{display:flex;gap:14px;flex-wrap:wrap}
+.cta-rows{border-top:1px solid var(--line)}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:15px 0;border-bottom:1px solid var(--line);transition:padding .2s}
+a.crow:hover{padding-left:8px}
+.crow .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);font-weight:500}
+.crow .v{font-size:14.5px;font-weight:500;text-align:right}
+@media(max-width:860px){
+  .cta-in{grid-template-columns:1fr;gap:38px}
+}
+@media(max-width:520px){
+  .cta-btns{flex-direction:column;align-items:stretch}
+}
+
+.foot{padding:26px 0;border-top:1px solid var(--line)}
+.foot-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--text-3)}
+
+/* ── animations ── */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .75s cubic-bezier(.22,.8,.28,1),transform .75s cubic-bezier(.22,.8,.28,1)}
+.rv.in{opacity:1;transform:none}
+.rv.stag{opacity:1;transform:none;transition:none}
+.rv.stag > *{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .7s cubic-bezier(.22,.8,.28,1) calc(var(--i,0) * 70ms),
+             transform .7s cubic-bezier(.22,.8,.28,1) calc(var(--i,0) * 70ms);
+}
+.rv.stag.in > *{opacity:1;transform:none}
+
+.hero-seq > *{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .8s cubic-bezier(.22,.8,.28,1) calc(var(--i,0) * 110ms + 120ms),
+             transform .8s cubic-bezier(.22,.8,.28,1) calc(var(--i,0) * 110ms + 120ms);
+}
+body.ready .hero-seq > *{opacity:1;transform:none}
+.hero-fig{opacity:0;transform:translateY(22px) scale(.985);
+  transition:opacity .9s cubic-bezier(.22,.8,.28,1) .34s,transform .9s cubic-bezier(.22,.8,.28,1) .34s}
+body.ready .hero-fig{opacity:1;transform:none}
+
+#bevGain.draw,#bevCost.draw{
+  stroke-dasharray:var(--len);stroke-dashoffset:var(--len);
+  animation:drawLine 1.5s cubic-bezier(.3,.7,.3,1) forwards;
+}
+#bevCost.draw{animation-duration:1.2s}
+@keyframes drawLine{to{stroke-dashoffset:0}}
+#bevDot.pop{animation:dotPop .5s cubic-bezier(.34,1.5,.5,1) 1.15s backwards}
+@keyframes dotPop{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+#bevDot{transform-box:fill-box;transform-origin:center}
+
+/* ── ligne de synthèse : la conclusion avant le détail ── */
+.keyline{
+  font-size:clamp(19px,2.1vw,26px);font-weight:300;line-height:1.38;letter-spacing:-.02em;
+  color:var(--text-2);max-width:34ch;margin:-16px 0 44px;
+  border-left:2px solid var(--peach);padding-left:22px;
+}
+.keyline b{font-weight:400;color:var(--text)}
+@media(max-width:640px){.keyline{padding-left:16px;margin-bottom:34px}}
+
+/* ── survol des surfaces : la page répond à la souris ── */
+.turn-c,.obj,.conv,.seek-c,.xr,.geo-m{transition:background .3s ease,border-color .3s ease,transform .3s cubic-bezier(.22,.8,.28,1)}
+.turn-c:hover{background:rgba(255,255,255,.022)}
+.turn-c.now:hover{background:linear-gradient(160deg,rgba(242,192,148,.10),rgba(110,123,216,.07))}
+.obj:hover,.conv:hover,.seek-c:hover{border-color:var(--line-2)}
+.objs.in > .obj:hover,.conv-grid.in > .conv:hover,.seek.in > .seek-c:hover{transform:translateY(-3px)}
+.obj.key:hover{border-color:rgba(242,192,148,.42)}
+.xr:hover{background:rgba(255,255,255,.02)}
+.xr:hover .xr-ar{color:var(--peach)}
+.xr-ar{transition:color .3s ease}
+
+/* ── variation du mouvement : tout ne rentre pas pareil ── */
+.turn.stag > *{transform:translateY(18px) scale(.99)}
+.turn.stag.in > *{transform:none}
+.conv-grid.stag > *{transform:translateY(14px) scale(.975)}
+.conv-grid.stag.in > *{transform:none}
+.seek.stag > *{transform:translateY(0) translateX(-14px)}
+.seek.stag.in > *{transform:none}
+.xfer.stag > *{transform:translateY(12px)}
+.xfer.stag.in > *{transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .rv,.rv.stag > *,.hero-seq > *,.hero-fig{opacity:1;transform:none;transition:none;animation:none}
+  .pill i{animation:none}
+  .objs.in > .obj:hover,.conv-grid.in > .conv:hover,.seek.in > .seek-c:hover{transform:none}
+  #bevGain,#bevCost,#bevDot{animation:none;stroke-dasharray:none;stroke-dashoffset:0}
+  *{transition-duration:.01ms!important}
+}
+:focus-visible{outline:2px solid var(--peach);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top"><span class="brand-mark">BJ</span>Benjamin Joubert</a>
+    <ul class="nav-links">
+      <li><a href="#virage">Fil rouge</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#questions">Vos questions</a></li>
+      <li><a href="#simulateur">Simulateur</a></li>
+    </ul>
+    <a class="nav-cta" href="tel:+33787666649">Me contacter</a>
+  </div>
+  <div class="progress" id="prog"></div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-in">
+      <div class="hero-seq">
+        <div class="pill"><i></i>Disponible dès septembre 2026</div>
+        <h1>Je ne débute pas<br>dans le commerce.<br><em>J'y reviens.</em></h1>
+        <p class="hero-p">
+          Benjamin Joubert, 23 ans. Bachelor Responsable de Développement Commercial
+          au CFA CCI Le Mans Sarthe, rentrée 2026. <strong>Alternance recherchée.</strong>
+        </p>
+        <p class="hero-thread">
+          Bac STMG Mercatique, puis la vente et le conseil en magasin et en concession.
+          Deux ans d'alternance en développement web m'ont ensuite donné la méthode et la rigueur.
+          Aujourd'hui je reviens au métier que j'avais choisi au départ, mieux outillé.
+        </p>
+        <div class="hero-btns">
+          <a class="btn btn-p" href="tel:+33787666649">Appeler le 07 87 66 66 49</a>
+          <a class="btn btn-s" href="#virage">Comprendre mon parcours</a>
+        </div>
+      </div>
+
+      <figure class="hero-fig">
+        <img src="images/moi.webp" alt="Benjamin Joubert" loading="eager">
+        <figcaption class="fig-cap">
+          <b>23 ans</b><span>Le Mans, Sarthe</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="idbar rv stag">
+      <div><b data-count="2" data-suffix=" ans">2 ans</b><span>d'alternance déjà réalisée</span></div>
+      <div><b data-count="2" data-suffix=" postes">2 postes</b><span>en vente et relation client</span></div>
+      <div><b>Bac+2</b><span>validé · entrée directe Bac+3</span></div>
+      <div><b>Permis B</b><span>véhicule personnel</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="sec glow" id="virage">
+  <div class="wrap">
+    <div class="sec-hd split rv">
+      <div>
+        <div class="lab">Le fil rouge</div>
+        <h2>Un aller-retour, pas un changement d'avis</h2>
+      </div>
+      <p>Web puis commerce, ça peut ressembler à une hésitation. Remis dans l'ordre, c'est l'inverse.</p>
+    </div>
+
+    <div class="turn rv stag">
+      <div class="turn-c">
+        <span class="turn-k">2018 → 2022 · Le point de départ</span>
+        <h3>J'ai commencé par le commerce</h3>
+        <p>Bac STMG <strong>Mercatique</strong> : stratégie commerciale, comportement du consommateur. Puis cinq mois de conseil au SAV Citroën.</p>
+        <p>Personne n'arrive de bonne humeur au comptoir d'un SAV. J'y ai découvert que <strong>la relation sous tension ne me fait pas fuir.</strong></p>
+      </div>
+      <div class="turn-c">
+        <span class="turn-k">2023 → 2025 · Le détour</span>
+        <h3>Deux ans de technique, qui servent</h3>
+        <p>BTS Webconcepteur en alternance. Livrer un projet dans les délais, jongler entre plusieurs dossiers, apprendre un outil nouveau tous les trimestres.</p>
+        <p>J'y ai gagné une méthode de travail et une aisance digitale réelles. <strong>Mais pas le contact quotidien qui me manquait.</strong></p>
+      </div>
+      <div class="turn-c now">
+        <span class="turn-k">Fin 2025 → 2026 · Le retour</span>
+        <h3>J'ai vérifié avant de m'engager</h3>
+        <p>Mon BTS en poche, je suis retourné en magasin sur la saison des fêtes : conseil client, autonomie sur mon poste, formation des nouveaux arrivants.</p>
+        <p>Ça a confirmé ce que je pensais. <strong>Ce Bac+3, c'est la formation qui manque à mon profil</strong>, pas un plan de secours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="parcours">
+  <div class="wrap">
+    <div class="sec-hd split rv">
+      <div>
+        <div class="lab">Parcours</div>
+        <h2>Cinq étapes, une direction</h2>
+      </div>
+      <p>Les dates, les employeurs, les intitulés. Sans enrobage.</p>
+    </div>
+    <div class="tl rv stag">
+      <div class="ti now">
+        <div class="ti-d">Sept. 2026 → à venir</div>
+        <div class="ti-r">Bachelor Responsable de Développement Commercial</div>
+        <div class="ti-o">CFA CCI Le Mans Sarthe · alternance recherchée</div>
+        <p class="ti-p">Plan d'action commercial, prospection, négociation, pilotage de l'activité. Titre RNCP niveau 6.</p>
+      </div>
+      <div class="ti">
+        <div class="ti-d">Oct. — Déc. 2025</div>
+        <div class="ti-r">Vente et préparation de commandes</div>
+        <div class="ti-o">Smyths Toys · Le Mans · saison des fêtes</div>
+        <p class="ti-p">Conseil client en rayon et préparation des commandes, poste organisé en autonomie. Formé en avance pour former à mon tour les nouveaux arrivants.</p>
+      </div>
+      <div class="ti">
+        <div class="ti-d">2023 — 2025</div>
+        <div class="ti-r">Développeur web · BTS Webconcepteur</div>
+        <div class="ti-o">Voxymore · Le Mans · alternance 2 ans</div>
+        <p class="ti-p">Projets menés jusqu'à la livraison, plusieurs dossiers en parallèle, délais tenus. Montée en compétence continue sur des outils nouveaux.</p>
+      </div>
+      <div class="ti">
+        <div class="ti-d">2021 — 2022</div>
+        <div class="ti-r">Conseiller commercial</div>
+        <div class="ti-o">Citroën GEMY · Le Mans · 5 mois</div>
+        <p class="ti-p">Accueil, diagnostic, reformulation du besoin, coordination avec les techniciens. La relation client dans un contexte tendu.</p>
+      </div>
+      <div class="ti">
+        <div class="ti-d">2018 — 2021</div>
+        <div class="ti-r">Bac technologique STMG · Mercatique</div>
+        <div class="ti-o">Lycée Touchard-Washington · Le Mans</div>
+        <p class="ti-p">Stratégie commerciale, comportement du consommateur, gestion. Les bases du métier que je reprends aujourd'hui.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="competences">
+  <div class="wrap">
+    <div class="sec-hd split rv">
+      <div>
+        <div class="lab">Compétences transférables</div>
+        <h2>Ce que deux ans d'alternance m'ont déjà appris</h2>
+      </div>
+      <p>Je n'ai pas de Bac+2 commerce. J'ai deux ans passés à faire, sous un autre intitulé, une bonne partie du métier.</p>
+    </div>
+
+    <p class="keyline rv">Sur le papier, je n'ai pas fait de commerce ces deux dernières années. <b>Dans les faits, j'en ai déjà exercé six compétences.</b></p>
+
+    <div class="xfer rv stag">
+      <div class="xfer-hd">
+        <span>Ce que je faisais</span><span></span><span>Ce que ça donne chez vous</span>
+      </div>
+      <div class="xr">
+        <div class="xr-from">Accueillir au SAV des clients dont la voiture était immobilisée, souvent mécontents.</div>
+        <div class="xr-ar">→</div>
+        <div class="xr-to"><b>Relation sous tension</b>Encaisser, reformuler, désamorcer, garder le client malgré un contexte défavorable.</div>
+      </div>
+      <div class="xr">
+        <div class="xr-from">Mener plusieurs projets en parallèle pendant deux ans, avec des échéances qui ne bougeaient pas.</div>
+        <div class="xr-ar">→</div>
+        <div class="xr-to"><b>Gestion de portefeuille</b>Prioriser, relancer au bon moment, ne pas laisser un dossier dormir.</div>
+      </div>
+      <div class="xr">
+        <div class="xr-from">Prendre en main un outil inconnu tous les trimestres, et construire les miens quand rien n'existait.</div>
+        <div class="xr-ar">→</div>
+        <div class="xr-to"><b>CRM et outils digitaux</b>Prise en main immédiate, automatisation des tâches répétitives, tableaux de bord.</div>
+      </div>
+      <div class="xr">
+        <div class="xr-from">Conseiller les clients en rayon tout en tenant mes propres délais de préparation.</div>
+        <div class="xr-ar">→</div>
+        <div class="xr-to"><b>Vente conseil</b>Accompagner un client jusqu'à sa décision, sans lâcher le reste de la charge de travail.</div>
+      </div>
+      <div class="xr">
+        <div class="xr-from">Organiser mon poste et mon temps en autonomie, puis former les nouveaux arrivants à la méthode.</div>
+        <div class="xr-ar">→</div>
+        <div class="xr-to"><b>Autonomie et transmission</b>Vous n'aurez pas à me dire quoi faire chaque matin, et je peux expliquer à quelqu'un d'autre comment le faire.</div>
+      </div>
+      <div class="xr">
+        <div class="xr-from">Gérer ma micro-entreprise seul : facturation, régime BIC, obligations déclaratives.</div>
+        <div class="xr-ar">→</div>
+        <div class="xr-to"><b>Sens du chiffre</b>Lire une marge, comprendre ce qui fait gagner de l'argent à une structure.</div>
+      </div>
+    </div>
+
+    <div class="sec-hd rv" style="margin:72px 0 0">
+      <div class="lab">Montée en charge</div>
+      <h2 style="font-size:clamp(22px,2.4vw,29px)">Ce que je prends en charge, et quand</h2>
+      <p>Une progression réaliste, pas une promesse.</p>
+    </div>
+    <ol class="ramp rv stag">
+      <li>
+        <span class="ramp-t">Dès la semaine 1</span>
+        <span class="ramp-d">Prospection téléphonique et terrain, prise en main du CRM, qualification des premiers contacts.</span>
+      </li>
+      <li>
+        <span class="ramp-t">Vers le 3ᵉ mois</span>
+        <span class="ramp-d">Entretiens de découverte en autonomie, construction et chiffrage des premières offres.</span>
+      </li>
+      <li>
+        <span class="ramp-t">Vers le 6ᵉ mois</span>
+        <span class="ramp-d">Négociation et suivi de portefeuille seul, participation au pilotage des actions commerciales.</span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec alt" id="methode">
+  <div class="wrap">
+    <div class="sec-hd split rv">
+      <div>
+        <div class="lab">Ma méthode</div>
+        <h2>Ce que j'ai compris de la négociation</h2>
+      </div>
+      <p>Trois convictions, pas une checklist apprise par cœur.</p>
+    </div>
+
+    <div class="conv-grid rv stag" style="margin-top:0">
+      <div class="conv">
+        <span class="conv-n">01</span>
+        <h4>Le prix affiché n'est jamais le vrai sujet</h4>
+        <p>La plupart des gens négocient sur un chiffre. Je cherche d'abord ce qui compte vraiment pour l'autre : la rapidité, la certitude, la simplicité. C'est souvent plus fort qu'une remise.</p>
+      </div>
+      <div class="conv">
+        <span class="conv-n">02</span>
+        <h4>Je n'improvise jamais un chiffre</h4>
+        <p>Une contre-offre sans repère derrière, c'est un pari, pas un argument. Je prépare mes chiffres avant d'ouvrir la bouche, jamais après.</p>
+      </div>
+      <div class="conv">
+        <span class="conv-n">03</span>
+        <h4>La meilleure concession ne coûte rien à l'autre</h4>
+        <p>S'engager vite, simplifier la logistique, lever une incertitude : ça pèse souvent plus qu'une baisse de prix, et ça ne se paie pas en marge.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="questions">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="lab">Vos questions</div>
+      <h2>Cinq doutes légitimes, cinq réponses</h2>
+      <p>Celles que je me poserais à votre place.</p>
+    </div>
+
+    <p class="keyline rv">Vous allez trouver mes points faibles de toute façon. <b>Autant que ce soit moi qui vous les donne.</b></p>
+
+    <div class="objs rv stag">
+      <div class="obj key">
+        <span class="obj-k">Le vrai sujet</span>
+        <h3>« Pourquoi lui plutôt qu'un BTS commerce, moins cher ? »</h3>
+        <p>Un BTS exécute la vente. Un Bac+3 construit le plan, le présente et le pilote. Si vous cherchez quelqu'un pour passer des appels, prenez un BTS. <strong>Si vous cherchez quelqu'un capable de structurer votre développement commercial et de vous rendre des comptes dessus, c'est ce niveau-là qu'il vous faut.</strong></p>
+      </div>
+      <div class="obj key">
+        <span class="obj-k">L'objection du diplôme</span>
+        <h3>« Il n'a pas de Bac+2 commerce, il part avec du retard »</h3>
+        <p>Sur la théorie commerciale pure, oui, et je ne vais pas prétendre le contraire. Mais j'ai un <strong>Bac STMG Mercatique</strong> et deux passages en vente et relation client. <strong>Sur la gestion de projet, la tenue des délais et les outils digitaux, j'ai deux ans d'avance sur un sortant de BTS.</strong></p>
+      </div>
+      <div class="obj">
+        <span class="obj-k">Autonomie</span>
+        <h3>« Sera-t-il vraiment autonome ? »</h3>
+        <p>Deux ans d'alternance et deux postes salariés. Sur mon dernier poste, <strong>j'organisais mon travail seul et je formais les nouveaux arrivants.</strong> J'ai appris à m'organiser, prioriser, et surtout à demander quand je ne sais pas.</p>
+      </div>
+      <div class="obj">
+        <span class="obj-k">Coût</span>
+        <h3>« Combien ça va vraiment coûter ? »</h3>
+        <p>Formation prise en charge par l'OPCO. Je sais que l'aide employeur est tombée à 2 000 € pour un Bac+3 depuis mars 2026. Je ne promets pas de compenser ça en un mois. Le simulateur ci-dessous vous laisse le vérifier avec vos chiffres.</p>
+      </div>
+      <div class="obj wide">
+        <span class="obj-k">Le terrain</span>
+        <h3>« Tiendra-t-il la prospection et les refus ? »</h3>
+        <p>Je n'ai jamais fait de prospection dans le dur, autant vous le dire tout de suite. Ce que je sais de moi : cinq mois au SAV à encaisser des clients mécontents sans lâcher, et des dizaines de candidatures envoyées pour cette alternance, avec plus de refus que de réponses. <strong>Un refus ne me fait pas arrêter, il me fait changer d'approche.</strong> C'est le seul argument honnête que je puisse vous donner avant d'avoir tenu un portefeuille.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt glow" id="simulateur">
+  <div class="wrap">
+    <div class="sec-hd split rv">
+      <div>
+        <div class="lab">Simulateur</div>
+        <h2>Combien coûte un alternant, et quand il se rembourse</h2>
+      </div>
+      <p>Vos chiffres, pas les miens. Le profil « Prudent » affiche volontairement un résultat défavorable : c'est un scénario possible.</p>
+    </div>
+
+    <div class="tool rv">
+      <div class="t-hd">
+        <div>
+          <span class="lab">Testez avec vos hypothèses</span>
+          <h3>Retour sur investissement, sur 12 mois</h3>
+          <p>Aucune productivité comptée durant les trois premiers mois. Aide employeur 2026 déduite.</p>
+        </div>
+        <div class="seg" role="group" aria-label="Profil d'entreprise">
+          <button class="rpreset" data-price="2500" data-rate="20" data-share="60" data-extra="4">Prudent</button>
+          <button class="rpreset on" data-price="10000" data-rate="20" data-share="60" data-extra="2">Réaliste</button>
+          <button class="rpreset" data-price="15000" data-rate="20" data-share="65" data-extra="2">Ambitieux</button>
+        </div>
+      </div>
+
+      <div class="t-bd">
+        <div class="t-in">
+          <div class="fld">
+            <div class="fld-row"><label for="roiCoutMensuel">Coût mensuel chargé</label>
+              <span class="fld-val"><input type="number" id="roiCoutMensuel" value="1456" step="10"><span class="u">€</span></span></div>
+            <input type="range" id="roiCoutMensuelSlider" min="700" max="2200" step="10" value="1456" aria-label="Coût mensuel de l'alternant">
+            <p class="fld-note">Barème légal 21-25 ans, 3ᵉ année de contrat : 78 % du SMIC. Ajustez selon votre convention collective.</p>
+          </div>
+          <div class="fld">
+            <div class="fld-row"><label for="roiPrice">Valeur moyenne d'une affaire</label>
+              <span class="fld-val"><input type="number" id="roiPrice" value="10000" step="500"><span class="u">€</span></span></div>
+            <input type="range" id="roiPriceSlider" min="500" max="40000" step="500" value="10000" aria-label="Valeur moyenne d'une affaire">
+          </div>
+          <div class="fld">
+            <div class="fld-row"><label for="roiExtra">Affaires supplémentaires, une fois formé</label>
+              <span class="fld-val"><input type="number" id="roiExtra" value="2" step="0.5"><span class="u">/mois</span></span></div>
+            <input type="range" id="roiExtraSlider" min="0.5" max="8" step="0.5" value="2" aria-label="Affaires supplémentaires par mois">
+          </div>
+
+          <details class="adv">
+            <summary>Votre marge</summary>
+            <div class="adv-body">
+              <div class="fld">
+                <div class="fld-row"><label for="roiRate">Taux de marge par affaire</label>
+                  <span class="fld-val"><input type="number" id="roiRate" value="20" step="1"><span class="u">%</span></span></div>
+                <input type="range" id="roiRateSlider" min="5" max="50" step="1" value="20" aria-label="Taux de marge par affaire">
+              </div>
+              <div class="fld">
+                <div class="fld-row"><label for="roiShare">Part conservée par l'entreprise</label>
+                  <span class="fld-val"><input type="number" id="roiShare" value="60" step="5"><span class="u">%</span></span></div>
+                <input type="range" id="roiShareSlider" min="20" max="100" step="5" value="60" aria-label="Part conservée par l'entreprise">
+                <p class="fld-note">Après rémunération de l'alternant.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div class="t-out">
+          <span class="lab res-k">Retour sur investissement</span>
+          <div class="res-hero">
+            <div class="n"><span id="roiRatio">1,2</span><small>×</small></div>
+            <div class="state ok" id="roiState"><i></i><span id="roiStateT">Rentabilisé au 10ᵉ mois</span></div>
+            <p class="c" id="roiVerdict">L'alternance s'autofinance à peu près sur l'année, et vous terminez avec un profil déjà formé à votre méthode.</p>
+          </div>
+
+          <div class="bev">
+            <div class="bev-k">Cumul sur les 12 mois du contrat</div>
+            <svg id="bevSvg" viewBox="0 0 320 130" aria-label="Courbe de point mort de l'alternance">
+              <line x1="0" y1="112" x2="320" y2="112" stroke="rgba(255,255,255,.10)" stroke-width="1"/>
+              <line class="bev-x" x1="0" y1="6" x2="0" y2="112" stroke="rgba(242,192,148,.35)" stroke-width="1" stroke-dasharray="3 4"/>
+              <polyline id="bevCost" fill="none" stroke="rgba(255,255,255,.34)" stroke-width="1.6" points=""/>
+              <polyline id="bevGain" fill="none" stroke="#F2C094" stroke-width="2.2" stroke-linejoin="round" points=""/>
+              <circle id="bevDot" r="4.5" fill="#F2C094" stroke="#0E0E12" stroke-width="2" cx="0" cy="0"/>
+              <text id="bevLbl" x="0" y="0" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#F2C094"></text>
+              <text x="0" y="126" font-family="Inter,sans-serif" font-size="9.5" fill="#66666F">M0</text>
+              <text x="150" y="126" font-family="Inter,sans-serif" font-size="9.5" fill="#66666F">M6</text>
+              <text x="303" y="126" font-family="Inter,sans-serif" font-size="9.5" fill="#66666F">M12</text>
+            </svg>
+            <div class="bev-leg">
+              <span><i class="g"></i>Marge cumulée</span>
+              <span><i class="c"></i>Coût cumulé</span>
+            </div>
+          </div>
+
+          <div class="res-grid">
+            <div class="res-cell"><div class="k">Mois 1-6 · montée en charge</div><div class="v tnum" id="roiA1">+3 600 €</div></div>
+            <div class="res-cell"><div class="k">Mois 7-12 · rythme de croisière</div><div class="v tnum" id="roiA2">+14 400 €</div></div>
+          </div>
+          <div class="res-rows">
+            <div class="res-row"><span class="l">Marge entreprise par affaire</span><span class="v tnum" id="roiMarge">1 200 €</span></div>
+            <div class="res-row"><span class="l">Coût total sur 12 mois</span><span class="v tnum" id="roiCout">15 472 €</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="t-ft"><span class="lab">Indicatif · hors variations d'activité et coûts indirects</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="secteur">
+  <div class="wrap">
+    <div class="sec-hd split rv">
+      <div>
+        <div class="lab">Ce que je cherche</div>
+        <h2>Le poste, et jusqu'où je me déplace</h2>
+      </div>
+      <p>Autant être clair sur ce que je vise : ça vous évite de me lire si ça ne colle pas.</p>
+    </div>
+
+    <div class="seek rv stag">
+      <div class="seek-c">
+        <span class="seek-k">Le poste</span>
+        <p>Développement commercial : prospection, rendez-vous de découverte, négociation et suivi de portefeuille. Terrain ou sédentaire, les deux me vont.</p>
+      </div>
+      <div class="seek-c">
+        <span class="seek-k">Le secteur</span>
+        <p>Ouvert, B2B comme B2C. Ce qui compte pour moi : un produit ou un service que je peux défendre honnêtement devant un client.</p>
+      </div>
+      <div class="seek-c">
+        <span class="seek-k">Le contrat</span>
+        <p>Apprentissage 12 mois, dès septembre 2026. Rythme 1 semaine au CFA pour 3 en entreprise. Le CFA accepte les signatures jusqu'à trois mois après la rentrée.</p>
+      </div>
+    </div>
+
+    <div class="geo rv">
+      <div class="geo-m">
+        <svg viewBox="0 0 480 420" role="img" aria-label="Zone d'intervention autour du Mans">
+          <defs>
+            <radialGradient id="zg" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(242,192,148,.18)"/>
+              <stop offset="60%" stop-color="rgba(110,123,216,.07)"/>
+              <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+            </radialGradient>
+            <filter id="pinglow" x="-150%" y="-150%" width="400%" height="400%">
+              <feGaussianBlur stdDeviation="7"/>
+            </filter>
+          </defs>
+
+          <circle cx="240" cy="215" r="165" fill="url(#zg)"/>
+          <circle cx="240" cy="215" r="165" fill="none" stroke="#F2C094" stroke-width="1" stroke-dasharray="4 7" opacity=".45"/>
+          <circle cx="240" cy="215" r="78" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="1" stroke-dasharray="3 5"/>
+
+          <text x="240" y="131" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#66666F">25 km</text>
+          <text x="240" y="44" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#F2C094">55 km</text>
+
+          <g font-family="Inter,sans-serif" font-size="10.5" fill="#8C8C97">
+            <circle cx="252" cy="168" r="3.5" fill="#6B6B78"/>
+            <text x="262" y="172" text-anchor="start">Coulaines</text>
+
+            <circle cx="196" cy="158" r="3.5" fill="#6B6B78"/>
+            <text x="186" y="162" text-anchor="end">Saint-Saturnin</text>
+
+            <circle cx="316" cy="146" r="3.5" fill="#6B6B78"/>
+            <text x="326" y="150" text-anchor="start">Bonnétable</text>
+
+            <circle cx="304" cy="214" r="3.5" fill="#6B6B78"/>
+            <text x="314" y="218" text-anchor="start">Yvré-l'Évêque</text>
+
+            <circle cx="262" cy="288" r="3.5" fill="#6B6B78"/>
+            <text x="272" y="292" text-anchor="start">Arnage</text>
+
+            <circle cx="180" cy="284" r="3.5" fill="#6B6B78"/>
+            <text x="170" y="288" text-anchor="end">La Suze</text>
+          </g>
+
+          <circle cx="240" cy="215" r="17" fill="#F2C094" opacity=".28" filter="url(#pinglow)"/>
+          <circle cx="240" cy="215" r="7" fill="#F2C094"/>
+          <text x="240" y="246" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="600" fill="#fff">LE MANS</text>
+          <text x="240" y="263" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" letter-spacing="1.8" fill="#F2C094">BASE</text>
+
+          <circle cx="90" cy="170" r="5.5" fill="#F2C094"/>
+          <text x="90" y="148" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" font-weight="600" fill="#fff">Mayenne / Laval</text>
+          <text x="90" y="132" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#F2C094">55 km · 50 min</text>
+
+          <circle cx="102" cy="308" r="5.5" fill="#F2C094"/>
+          <text x="102" y="332" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" font-weight="600" fill="#fff">Sablé-sur-Sarthe</text>
+          <text x="102" y="348" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#F2C094">45 km · 40 min</text>
+
+          <circle cx="256" cy="360" r="5.5" fill="#F2C094"/>
+          <text x="256" y="384" text-anchor="middle" font-family="Inter,sans-serif" font-size="12.5" font-weight="600" fill="#fff">La Flèche</text>
+          <text x="256" y="400" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="#F2C094">45 km · 40 min</text>
+        </svg>
+      </div>
+
+      <div class="geo-txt">
+        <p>Au-delà du Mans, je couvre La Flèche, Sablé et le secteur Mayenne / Laval, à 40-50 minutes en voiture. Véhicule personnel, permis B.</p>
+        <div class="geo-list">
+          <div><span>Coulaines</span><span class="d">4 km</span></div>
+          <div><span>Arnage</span><span class="d">7 km</span></div>
+          <div><span>Yvré-l'Évêque</span><span class="d">7 km</span></div>
+          <div><span>Saint-Saturnin</span><span class="d">8 km</span></div>
+          <div><span>La Suze-sur-Sarthe</span><span class="d">18 km</span></div>
+          <div><span>Bonnétable</span><span class="d">22 km</span></div>
+          <div class="far"><span>La Flèche</span><span class="d">45 km</span></div>
+          <div class="far"><span>Sablé-sur-Sarthe</span><span class="d">45 km</span></div>
+          <div class="far"><span>Mayenne / Laval</span><span class="d">55 km</span></div>
+        </div>
+        <div class="geo-leg">
+          <span><i style="background:#6B6B78"></i>Périphérie immédiate · moins de 25 min</span>
+          <span><i style="background:#F2C094"></i>Secteurs élargis · 40 à 50 min</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="wrap">
+    <div class="cta-in">
+      <div>
+        <div class="pill" style="margin-bottom:18px"><i></i>Disponible dès septembre 2026</div>
+        <h2>On échange<br>autour d'un café ?</h2>
+        <p>Le plus simple reste un coup de fil. Je réponds tous les jours, week-end compris.</p>
+        <div class="cta-btns">
+          <a class="btn btn-p" href="tel:+33787666649">Appeler le 07 87 66 66 49</a>
+          <a class="btn btn-s" href="mailto:benjamin.joubert6@gmail.com">Envoyer un e-mail</a>
+        </div>
+      </div>
+
+      <div class="cta-rows">
+        <a class="crow" href="tel:+33787666649"><span class="k">Téléphone</span><span class="v">07 87 66 66 49</span></a>
+        <a class="crow" href="mailto:benjamin.joubert6@gmail.com"><span class="k">Email</span><span class="v">benjamin.joubert6@gmail.com</span></a>
+        <div class="crow"><span class="k">Localisation</span><span class="v">Le Mans · 72100</span></div>
+        <div class="crow"><span class="k">Formation</span><span class="v">CFA CCI Le Mans · Bachelor RDC</span></div>
+        <div class="crow"><span class="k">Rythme</span><span class="v">1 semaine CFA / 3 en entreprise</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>Benjamin Joubert · Candidature alternance 2026</span>
+    <span>Le Mans, Sarthe</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- révélation au scroll ---- */
+  if (reduced || !('IntersectionObserver' in window)) {
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  }
+
+  document.querySelectorAll('.stag, .hero-seq').forEach(function(g){
+    [].forEach.call(g.children, function(ch, i){ ch.style.setProperty('--i', i); });
+  });
+
+  requestAnimationFrame(function(){ document.body.classList.add('ready'); });
+
+  /* ---- halo du hero, suit le curseur ---- */
+  var hero = document.querySelector('.hero');
+  if (hero && !reduced && matchMedia('(hover:hover)').matches) {
+    hero.addEventListener('pointermove', function(e){
+      var r = hero.getBoundingClientRect();
+      hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      hero.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  }
+
+  /* ---- compteurs animés, une seule fois au passage ---- */
+  once('.idbar', function(){
+    document.querySelectorAll('[data-count]').forEach(function(el){
+      var target = parseInt(el.dataset.count, 10), suffix = el.dataset.suffix || '';
+      if (reduced || !target) { el.textContent = target + suffix; return; }
+      var start = null, dur = 900;
+      function step(ts){
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  });
+
+  function once(sel, cb){
+    var el = document.querySelector(sel);
+    if (!el) return;
+    if (reduced || !('IntersectionObserver' in window)) { cb(el); return; }
+    var o = new IntersectionObserver(function(en){
+      en.forEach(function(e){ if (e.isIntersecting) { o.unobserve(e.target); cb(e.target); } });
+    }, { threshold: 0.3 });
+    o.observe(el);
+  }
+
+  /* ---- nav : progression + lien actif ---- */
+  var secs = [].slice.call(document.querySelectorAll('section[id]'));
+  var links = [].slice.call(document.querySelectorAll('.nav-links a'));
+  var prog = document.getElementById('prog');
+  function syncNav(){
+    var y = window.scrollY + 140, cur = '';
+    secs.forEach(function(s){ if (s.offsetTop <= y) cur = s.id; });
+    links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#' + cur); });
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if (prog) prog.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', syncNav, { passive: true });
+  syncNav();
+
+  /* ---- helpers calcul ---- */
+  function val(id, d){ var e = document.getElementById(id); if(!e) return d; var v = parseFloat(e.value); return isNaN(v) ? d : v; }
+  function set(id, t){ var e = document.getElementById(id); if(e) e.textContent = t; }
+  function eur(n){ return Math.round(n).toLocaleString('fr-FR'); }
+  function fr(n, d){ return n.toFixed(d).replace('.', ','); }
+
+  function paint(s){
+    if(!s) return;
+    var min = parseFloat(s.min), max = parseFloat(s.max), v = parseFloat(s.value);
+    var p = max > min ? ((v - min) / (max - min)) * 100 : 0;
+    s.style.background = 'linear-gradient(90deg,var(--peach) ' + p + '%,var(--surface-3) ' + p + '%)';
+  }
+  function paintAll(){ document.querySelectorAll('input[type=range]').forEach(paint); }
+
+  function link(prefix, fields, onChange){
+    fields.forEach(function(f){
+      var i = document.getElementById(prefix + f), s = document.getElementById(prefix + f + 'Slider');
+      if(!i || !s) return;
+      i.addEventListener('input', function(){ s.value = i.value; paint(s); onChange(); });
+      s.addEventListener('input', function(){ i.value = s.value; paint(s); onChange(); });
+    });
+  }
+  function segSelect(btn, sel){
+    document.querySelectorAll(sel).forEach(function(b){ b.classList.toggle('on', b === btn); });
+  }
+
+  /* ---- simulateur : coût et ROI d'un alternant ---- */
+  function updateROI(){
+    var price = val('roiPrice', 0), rate = val('roiRate', 0),
+        share = val('roiShare', 60), extra = val('roiExtra', 1),
+        coutMensuel = val('roiCoutMensuel', 1456);
+    var aideEtat = 2000, coutTotal = coutMensuel * 12 - aideEtat;
+    var marge = price * (rate / 100) * (share / 100);
+    var gainA1 = marge * extra * 0.5 * 3;
+    var gainA2 = marge * extra * 6;
+    var roi = coutTotal > 0 ? (gainA1 + gainA2) / coutTotal : 0;
+
+    var W = 320, H = 112, PAD = 6, N = 12;
+    var cumC = [0], cumG = [0], cc = 0, cg = 0, bev = 0;
+    for (var m = 1; m <= N; m++){
+      cc += coutMensuel - aideEtat / 12;
+      cg += (m <= 3) ? 0 : (m <= 6 ? marge * extra * 0.5 : marge * extra);
+      cumC.push(cc); cumG.push(cg);
+      if (!bev && cg > cc) bev = m;
+    }
+    var top = Math.max(cc, cg, 1);
+    var X = function(i){ return (i / N) * W; };
+    var Y = function(v){ return H - (v / top) * (H - PAD); };
+    var pts = function(a){ return a.map(function(v, i){ return X(i).toFixed(1) + ',' + Y(v).toFixed(1); }).join(' '); };
+
+    var pc = document.getElementById('bevCost'), pg = document.getElementById('bevGain');
+    if (pc) pc.setAttribute('points', pts(cumC));
+    if (pg) pg.setAttribute('points', pts(cumG));
+
+    var dot = document.getElementById('bevDot'), lb = document.getElementById('bevLbl'),
+        vx = document.querySelector('.bev-x');
+    if (dot && lb && vx){
+      if (bev){
+        var bx = X(bev), by = Y(cumG[bev]);
+        dot.setAttribute('cx', bx.toFixed(1)); dot.setAttribute('cy', by.toFixed(1));
+        dot.style.display = ''; vx.style.display = '';
+        vx.setAttribute('x1', bx.toFixed(1)); vx.setAttribute('x2', bx.toFixed(1));
+        vx.setAttribute('y1', by.toFixed(1));
+        lb.setAttribute('x', Math.min(bx + 8, W - 72).toFixed(1));
+        lb.setAttribute('y', Math.max(by - 9, 12).toFixed(1));
+        lb.textContent = 'Point mort · M' + bev;
+      } else {
+        dot.style.display = 'none'; vx.style.display = 'none'; lb.textContent = '';
+      }
+    }
+
+    var rs = document.getElementById('roiState');
+    if (rs){
+      var rc, rt;
+      if (!bev)        { rc = 'warn'; rt = 'Non rentabilisé sur 12 mois'; }
+      else if (bev <= 6){ rc = 'good'; rt = 'Rentabilisé au ' + bev + 'ᵉ mois'; }
+      else             { rc = 'ok';   rt = 'Rentabilisé au ' + bev + 'ᵉ mois'; }
+      rs.className = 'state ' + rc;
+      set('roiStateT', rt);
+    }
+
+    set('roiMarge', eur(marge) + ' €');
+    set('roiA1', '+' + eur(gainA1) + ' €');
+    set('roiA2', '+' + eur(gainA2) + ' €');
+    set('roiCout', eur(coutTotal) + ' €');
+    set('roiRatio', fr(roi, 1));
+
+    var v;
+    if (roi < 1)        v = "Sur ces hypothèses, l'alternance ne se rembourse pas seule sur 12 mois : sa valeur est ailleurs, dans le temps libéré pour votre équipe.";
+    else if (roi < 1.6) v = "L'alternance s'autofinance à peu près sur l'année, et vous terminez avec un profil déjà formé à votre méthode.";
+    else if (roi < 3)   v = "Rentabilisé en cours de second semestre, et vous gardez ensuite quelqu'un qui connaît déjà vos clients.";
+    else                v = "Hypothèses favorables : coût couvert dès le second semestre. À pondérer selon votre capacité réelle à absorber plus d'affaires.";
+    set('roiVerdict', v);
+  }
+
+  link('roi', ['Price', 'Rate', 'Share', 'Extra', 'CoutMensuel'], updateROI);
+  document.querySelectorAll('.rpreset').forEach(function(b){
+    b.addEventListener('click', function(){
+      var m = { Price: 'price', Rate: 'rate', Share: 'share', Extra: 'extra' };
+      Object.keys(m).forEach(function(k){
+        var v = b.dataset[m[k]];
+        if (v !== undefined){
+          var i = document.getElementById('roi' + k), s = document.getElementById('roi' + k + 'Slider');
+          if (i) i.value = v;
+          if (s){ s.value = v; paint(s); }
+        }
+      });
+      segSelect(b, '.rpreset');
+      updateROI();
+    });
+  });
+  updateROI();
+  paintAll();
+
+  once('.bev', function(){
+    ['bevCost', 'bevGain'].forEach(function(id){
+      var p = document.getElementById(id);
+      if (!p || !p.getTotalLength) return;
+      var len = p.getTotalLength();
+      if (!len) return;
+      p.style.setProperty('--len', len);
+      p.classList.add('draw');
+    });
+    var d = document.getElementById('bevDot');
+    if (d) d.classList.add('pop');
+  });
+})();
+</script>
+</body>
+</html>
