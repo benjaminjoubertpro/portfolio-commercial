@@ -11,9 +11,13 @@
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Benjamin Joubert · Alternance développement commercial 2026">
 <meta property="og:description" content="Je ne débute pas dans le commerce, j'y reviens. Bachelor RDC au CFA CCI Le Mans, alternance recherchée pour septembre 2026.">
-<meta property="og:image" content="images/Moi.webp">
+<meta property="og:image" content="images/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Benjamin Joubert, candidat en alternance développement commercial, rentrée 2026">
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="images/og-card.jpg">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23F3C08F'/%3E%3Ctext x='32' y='44' font-family='Arial' font-size='30' font-weight='700' text-anchor='middle' fill='%23120C05'%3EBJ%3C/text%3E%3C/svg%3E">
 
@@ -37,7 +41,7 @@
   --line-2:rgba(255,255,255,.145);
   --ink:#F7F7FA;
   --ink-2:#9EA0AC;
-  --ink-3:#63636F;
+  --ink-3:#82838F;
   --amber:#F3C08F;
   --amber-2:#E79E63;
   --indigo:#7E8AE8;
@@ -65,11 +69,11 @@
   --line-2:rgba(16,16,22,.19);
   --ink:#111116;
   --ink-2:#54545F;
-  --ink-3:#84848F;
-  --amber:#B5731F;
-  --amber-2:#96591A;
+  --ink-3:#63636F;
+  --amber:#98611A;
+  --amber-2:#7C4E15;
   --indigo:#4A55C8;
-  --mint:#12855A;
+  --mint:#0E7049;
   --on-amber:#FFFFFF;
   --glow:.5;
   --grain:.018;
@@ -294,11 +298,12 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
 .pal-list button svg{width:15px;height:15px;color:var(--amber);flex:none}
 
 .toast{
-  position:fixed;left:50%;bottom:30px;z-index:320;transform:translate(-50%,180%);
+  position:fixed;left:50%;bottom:30px;z-index:320;transform:translate(-50%,0);
   background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:100px;
-  font-size:14px;font-weight:500;transition:transform .5s var(--ease-out);white-space:nowrap;
+  font-size:14px;font-weight:500;opacity:0;pointer-events:none;
+  transition:opacity .4s var(--ease-out),transform .4s var(--ease-out);white-space:nowrap;
 }
-.toast.up{transform:translate(-50%,0)}
+.toast.up{opacity:1;transform:translate(-50%,-10px)}
 @media(max-width:920px){.toast{bottom:88px}}
 
 /* ═════════════ 7. HERO ═════════════ */
@@ -313,6 +318,14 @@ em.s{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-
 .pill i{width:7px;height:7px;border-radius:50%;background:var(--mint);position:relative;flex:none}
 .pill i::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid var(--mint);opacity:.5;animation:ping 2.6s var(--ease) infinite}
 @keyframes ping{0%{transform:scale(.6);opacity:.7}70%,100%{transform:scale(1.7);opacity:0}}
+.hero-target{
+  display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-2);
+  margin:-18px 0 26px;opacity:0;animation:targetIn .6s var(--ease-out) .15s forwards;
+}
+.hero-target[hidden]{display:none}
+.hero-target b{color:var(--amber);font-weight:600}
+.hero-target svg{width:13px;height:13px;color:var(--amber);flex:none}
+@keyframes targetIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 h1 .lm > span{padding-right:.02em}
 .hero-p{font-size:17.5px;color:var(--ink-2);max-width:52ch;line-height:1.6;margin:28px 0 16px}
 .hero-p strong{color:var(--ink);font-weight:500}
@@ -374,6 +387,32 @@ h1 .lm > span{padding-right:.02em}
 .mq-t span i{font-style:normal;color:var(--amber);font-size:11px}
 .mq:hover .mq-t{animation-play-state:paused}
 @keyframes mqx{to{transform:translateX(-50%)}}
+
+/* ── mode de lecture : express / complet ── */
+.rtoggle{display:flex;align-items:center;gap:10px;margin-top:26px;flex-wrap:wrap}
+.rt-lab{font-size:12.5px;color:var(--ink-3)}
+.rt-btn{padding:7px 15px;border-radius:100px;border:1px solid var(--line);font-size:12.5px;color:var(--ink-2);transition:all .25s var(--ease)}
+.rt-btn:hover{border-color:var(--line-2);color:var(--ink)}
+.rt-btn.on{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.quicksum{display:none;position:relative;z-index:1;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel)}
+.mode-fast .quicksum{display:block;animation:qsIn .5s var(--ease-out)}
+@keyframes qsIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+.qs-hd{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:34px 0 26px}
+.qs-hd .lab{margin:0}
+.qs-full{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;color:var(--ink);padding:9px 16px 9px 18px;border-radius:100px;border:1px solid var(--line-2);transition:all .25s var(--ease)}
+.qs-full:hover{background:var(--panel-2);transform:translateX(2px)}
+.qs-full svg{width:14px;height:14px;color:var(--amber)}
+.qs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-bottom:30px}
+.qs-col{padding:22px 22px 24px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--panel-2)}
+.qs-k{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);font-weight:500;margin-bottom:12px}
+.qs-col p{font-size:14px;color:var(--ink-2);line-height:1.62}
+.qs-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.qs-col li{font-size:14px;color:var(--ink-2);line-height:1.4;padding-left:16px;position:relative}
+.qs-col li::before{content:'';position:absolute;left:0;top:7px;width:6px;height:6px;border-radius:50%;background:var(--mint)}
+.qs-ft{display:flex;gap:13px;flex-wrap:wrap;padding-bottom:34px}
+.mode-fast .sec,.mode-fast .mq{display:none}
+@media(max-width:900px){.qs-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.qs-grid{grid-template-columns:1fr}.qs-ft .btn{width:100%}}
 
 /* ═════════════ 8. FIL ROUGE ═════════════ */
 .turn{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
@@ -577,8 +616,11 @@ polyline.draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation
 .res-row{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-top:1px solid var(--line);font-size:13.5px}
 .res-row .l{color:var(--ink-3)}
 .res-row .v{font-weight:500;font-variant-numeric:tabular-nums}
-.t-ft{padding:14px 30px;border-top:1px solid var(--line);background:var(--panel-3)}
+.t-ft{padding:14px 30px;border-top:1px solid var(--line);background:var(--panel-3);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .t-ft .lab{margin:0}
+.pdf-btn{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--ink-2);padding:8px 14px;border-radius:100px;border:1px solid var(--line-2);transition:all .25s var(--ease)}
+.pdf-btn:hover{color:var(--ink);background:var(--panel-2);border-color:var(--ink-3)}
+.pdf-btn svg{width:14px;height:14px;color:var(--amber);flex:none}
 
 /* ═════════════ 14. SECTEUR + CARTE ═════════════ */
 .seek{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:56px}
@@ -683,6 +725,28 @@ a.crow:hover,button.crow:hover{background:var(--panel-2)}
   .fq-b p{opacity:1 !important;padding-left:0}
   a{color:#111}
 }
+
+/* ── export PDF du simulateur : impression ciblée ── */
+.print-only{display:none}
+@media print{
+  body.print-sim-mode > *{display:none !important}
+  body.print-sim-mode .print-only{display:block !important;color:#111}
+}
+.pr-hd{border-bottom:2px solid #111;padding-bottom:14px;margin-bottom:22px}
+.pr-brand{font-size:20px;font-weight:600;letter-spacing:-.02em}
+.pr-sub{font-size:12.5px;color:#444;margin-top:4px}
+.pr-for{font-size:12.5px;color:#444;margin-top:4px}
+.pr-date{font-size:11px;color:#777;margin-top:8px}
+.pr-result{margin-bottom:26px}
+.pr-ratio{display:flex;align-items:baseline;gap:8px;font-size:40px;font-weight:600;letter-spacing:-.03em}
+.pr-ratio small{font-size:12px;font-weight:400;color:#555}
+.pr-state{font-size:13px;font-weight:600;margin-top:6px}
+.pr-verdict{font-size:13px;color:#333;line-height:1.55;margin-top:8px;max-width:60ch}
+.pr-table{width:100%;border-collapse:collapse;margin-bottom:22px;font-size:12.5px}
+.pr-table th{text-align:left;padding:8px 0;border-bottom:1px solid #999;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#555}
+.pr-table td{padding:7px 0;border-bottom:1px solid #ddd}
+.pr-table td:last-child{text-align:right;font-weight:600}
+.pr-ft{margin-top:30px;padding-top:14px;border-top:1px solid #999;font-size:11px;color:#666;line-height:1.6}
 </style>
 </head>
 <body>
@@ -748,7 +812,11 @@ a.crow:hover,button.crow:hover{background:var(--panel-2)}
   <div class="wrap">
     <div class="hero-in">
       <div>
-        <div class="pill"><i></i>Disponible dès septembre 2026 · Le Mans</div>
+        <div class="pill"><i></i><span id="pillTxt">Disponible dès septembre 2026 · Le Mans</span></div>
+        <p class="hero-target" id="heroTarget" hidden>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          Candidature adressée à <b id="heroTargetName"></b>
+        </p>
         <h1>
           <span class="lm" style="--i:0"><span>Je ne débute pas</span></span>
           <span class="lm" style="--i:1"><span>dans le commerce.</span></span>
@@ -769,6 +837,11 @@ a.crow:hover,button.crow:hover{background:var(--panel-2)}
             Appeler le 07 87 66 66 49
           </a>
           <a class="btn btn-s mag" href="#virage" data-hot>Comprendre mon parcours</a>
+        </div>
+        <div class="rtoggle" role="group" aria-label="Mode de lecture">
+          <span class="rt-lab">Vous avez</span>
+          <button class="rt-btn" data-rmode="fast">30 secondes</button>
+          <button class="rt-btn on" data-rmode="full">5 minutes</button>
         </div>
       </div>
 
@@ -795,6 +868,41 @@ a.crow:hover,button.crow:hover{background:var(--panel-2)}
     <div class="cue" aria-hidden="true"><i></i>Faites défiler</div>
   </div>
 </header>
+
+<section class="quicksum" id="quicksum" aria-label="Résumé express du profil">
+  <div class="wrap">
+    <div class="qs-hd">
+      <div class="lab">Résumé express</div>
+      <button class="qs-full" data-rmode="full">Tout lire, 5 minutes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+    <div class="qs-grid">
+      <div class="qs-col">
+        <span class="qs-k">Le parcours, en une ligne</span>
+        <p>J'ai commencé par le commerce (bac STMG, cinq mois au SAV Citroën), fait un détour de deux ans par le web en alternance, puis vérifié mon retour en vente cet hiver chez Smyths Toys. Le Bachelor RDC referme la boucle.</p>
+      </div>
+      <div class="qs-col">
+        <span class="qs-k">Ce qui est déjà solide</span>
+        <ul>
+          <li>Relation client sous tension</li>
+          <li>Organisation et tenue des délais</li>
+          <li>Outils digitaux et CRM, mon point fort</li>
+        </ul>
+      </div>
+      <div class="qs-col">
+        <span class="qs-k">Ce qui reste à construire</span>
+        <p>La négociation terrain : des bases théoriques, jamais éprouvées en conditions réelles. Je préfère vous le dire maintenant plutôt que vous le laisser découvrir en poste.</p>
+      </div>
+      <div class="qs-col">
+        <span class="qs-k">Concret</span>
+        <p>Disponible dès septembre 2026. Le Mans, jusqu'à 50 min alentours, permis B et véhicule personnel. Apprentissage 12 mois, 1 semaine de CFA pour 3 en entreprise.</p>
+      </div>
+    </div>
+    <div class="qs-ft">
+      <a class="btn btn-p mag" href="tel:+33787666649" data-hot>Appeler le 07 87 66 66 49</a>
+      <a class="btn btn-s mag" href="mailto:benjamin.joubert6@gmail.com" data-hot>Envoyer un e-mail</a>
+    </div>
+  </div>
+</section>
 
 <div class="mq" aria-hidden="true">
   <div class="mq-t">
@@ -1185,7 +1293,13 @@ a.crow:hover,button.crow:hover{background:var(--panel-2)}
           </div>
         </div>
       </div>
-      <div class="t-ft"><div class="lab">Indicatif · hors variations d'activité et coûts indirects</div></div>
+      <div class="t-ft">
+        <div class="lab">Indicatif · hors variations d'activité et coûts indirects</div>
+        <button class="pdf-btn" id="pdfExport">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13m0 0 4-4m-4 4-4-4M4 18v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+          Exporter ces chiffres en PDF
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -1296,12 +1410,12 @@ a.crow:hover,button.crow:hover{background:var(--panel-2)}
   <div class="wrap">
     <div class="cta-in rv">
       <div>
-        <div class="pill"><i></i>Disponible dès septembre 2026</div>
+        <div class="pill"><i></i><span id="ctaPillTxt">Disponible dès septembre 2026</span></div>
         <h2>On échange<br><em class="s">autour d'un café ?</em></h2>
         <p>Le plus simple reste un coup de fil. Je réponds tous les jours, week-end compris.</p>
         <div class="cta-btns">
           <a class="btn btn-p mag" href="tel:+33787666649" data-hot>Appeler le 07 87 66 66 49</a>
-          <a class="btn btn-s mag" href="mailto:benjamin.joubert6@gmail.com" data-hot>Envoyer un e-mail</a>
+          <a class="btn btn-s mag" href="mailto:benjamin.joubert6@gmail.com" data-hot id="ctaMailBtn">Envoyer un e-mail</a>
         </div>
       </div>
 
@@ -1333,6 +1447,39 @@ a.crow:hover,button.crow:hover{background:var(--panel-2)}
   <div class="pal-box">
     <input type="text" id="palInput" placeholder="Aller à une section, appeler, écrire…" autocomplete="off" spellcheck="false">
     <div class="pal-list" id="palList"></div>
+  </div>
+</div>
+
+<div class="print-only" id="printSim" aria-hidden="true">
+  <div class="pr-hd">
+    <div class="pr-brand">Benjamin Joubert</div>
+    <div class="pr-sub">Simulation de rentabilité, Bachelor Responsable de Développement Commercial</div>
+    <div class="pr-for" id="prFor" hidden>Préparée pour <b id="prForName"></b></div>
+    <div class="pr-date" id="prDate"></div>
+  </div>
+  <div class="pr-result">
+    <div class="pr-ratio"><span id="prRatio"></span><small>× le coût sur 12 mois</small></div>
+    <div class="pr-state" id="prState"></div>
+    <p class="pr-verdict" id="prVerdict"></p>
+  </div>
+  <table class="pr-table">
+    <tr><th colspan="2">Hypothèses saisies</th></tr>
+    <tr><td>Coût mensuel chargé</td><td id="prCoutMensuel"></td></tr>
+    <tr><td>Valeur moyenne d'une affaire</td><td id="prPrice"></td></tr>
+    <tr><td>Affaires supplémentaires, une fois formé</td><td id="prExtra"></td></tr>
+    <tr><td>Taux de marge par affaire</td><td id="prRate"></td></tr>
+    <tr><td>Part conservée par l'entreprise</td><td id="prShare"></td></tr>
+  </table>
+  <table class="pr-table">
+    <tr><th colspan="2">Résultats sur 12 mois</th></tr>
+    <tr><td>Marge entreprise par affaire</td><td id="prMarge"></td></tr>
+    <tr><td>Mois 1 à 6, montée en charge</td><td id="prA1"></td></tr>
+    <tr><td>Mois 7 à 12, rythme de croisière</td><td id="prA2"></td></tr>
+    <tr><td>Coût total sur 12 mois</td><td id="prCout"></td></tr>
+  </table>
+  <div class="pr-ft">
+    <div>Benjamin Joubert · 07 87 66 66 49 · benjamin.joubert6@gmail.com</div>
+    <div>Simulation indicative, hors variations d'activité et coûts indirects. Calculée à partir des hypothèses saisies ci-dessus.</div>
   </div>
 </div>
 
@@ -1375,6 +1522,28 @@ function toggleTheme(){
   try { localStorage.setItem('bj-theme', t); } catch(e){}
 }
 var tb = $('#themeBtn'); if (tb) tb.addEventListener('click', toggleTheme);
+
+/* ── 3bis. Lien personnalisé (?e=Entreprise) ──── */
+(function(){
+  try {
+    var raw = new URLSearchParams(location.search).get('e');
+    if (!raw) return;
+    var name = raw.replace(/[_+]/g, ' ').trim();
+    try { name = name.replace(/[^\p{L}\p{N}\s'’\-]/gu, ''); } catch(e){}
+    name = name.replace(/\s+/g, ' ').trim().slice(0, 42);
+    if (!name) return;
+
+    var pt = $('#pillTxt');
+    if (pt) pt.textContent = 'Pour ' + name + ' · Disponible dès septembre 2026';
+    var cp = $('#ctaPillTxt');
+    if (cp) cp.textContent = 'Pour ' + name;
+    var ht = $('#heroTarget'), htn = $('#heroTargetName');
+    if (ht && htn){ htn.textContent = name; ht.hidden = false; }
+    var mb = $('#ctaMailBtn');
+    if (mb) mb.textContent = 'Écrire à propos du poste chez ' + name;
+    try { document.title = 'Benjamin Joubert · Pour ' + name; } catch(e){}
+  } catch(e){}
+})();
 
 /* ── 3. Révélations au scroll ─────────────────── */
 $$('.stag, .hero-in, .idbar').forEach(function(g){
@@ -1554,6 +1723,37 @@ if (finePointer && !reduced){
   });
 })();
 
+/* ── 8bis. Mode de lecture (30s / 5min) ───────── */
+(function(){
+  var qs = $('#quicksum');
+  if (!qs) return;
+  function setMode(mode){
+    document.body.classList.toggle('mode-fast', mode === 'fast');
+    $$('[data-rmode]').forEach(function(b){
+      if (b.tagName === 'BUTTON' && b.classList.contains('rt-btn')) b.classList.toggle('on', b.dataset.rmode === mode);
+    });
+  }
+  $$('.rt-btn').forEach(function(b){
+    b.addEventListener('click', function(){ setMode(b.dataset.rmode); });
+  });
+  var qsFull = $('.qs-full');
+  if (qsFull) qsFull.addEventListener('click', function(){
+    setMode('full');
+    setTimeout(function(){ go('#virage'); }, 60);
+  });
+  /* si on clique un lien d'ancre pendant le mode express, on repasse en lecture complète avant de sauter */
+  document.addEventListener('click', function(e){
+    if (!document.body.classList.contains('mode-fast')) return;
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var hash = a.getAttribute('href');
+    if (hash === '#top' || hash === '#contact' || hash.length < 2) return;
+    e.preventDefault();
+    setMode('full');
+    setTimeout(function(){ go(hash); }, 60);
+  });
+})();
+
 /* ── 9. Accordéon objections ──────────────────── */
 $$('.fq-h').forEach(function(h){
   h.addEventListener('click', function(){
@@ -1666,6 +1866,37 @@ once('.bev', function(){
   });
   var d = $('#bevDot'); if (d) d.classList.add('pop');
 });
+
+/* ── 10bis. Export PDF du simulateur ──────────── */
+(function(){
+  var btn = $('#pdfExport');
+  if (!btn) return;
+  function txt(id){ var e = $('#'+id); return e ? e.textContent : ''; }
+  function num(id){ var e = $('#'+id); return e ? e.value : ''; }
+  btn.addEventListener('click', function(){
+    set('prRatio', txt('roiRatio'));
+    set('prState', txt('roiStateT'));
+    set('prVerdict', txt('roiVerdict'));
+    set('prCoutMensuel', num('roiCoutMensuel') + ' € / mois');
+    set('prPrice', num('roiPrice') + ' €');
+    set('prExtra', num('roiExtra') + ' affaire(s) / mois');
+    set('prRate', num('roiRate') + ' %');
+    set('prShare', num('roiShare') + ' %');
+    set('prMarge', txt('roiMarge'));
+    set('prA1', txt('roiA1'));
+    set('prA2', txt('roiA2'));
+    set('prCout', txt('roiCout'));
+    set('prDate', 'Simulation générée le ' + new Date().toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' }));
+    var forName = $('#heroTargetName'), pf = $('#prFor');
+    if (pf){ if (forName && forName.textContent){ set('prForName', forName.textContent); pf.hidden = false; } else { pf.hidden = true; } }
+    document.body.classList.add('print-sim-mode');
+    setTimeout(function(){
+      print();
+      setTimeout(function(){ document.body.classList.remove('print-sim-mode'); }, 400);
+    }, 30);
+  });
+  addEventListener('afterprint', function(){ document.body.classList.remove('print-sim-mode'); });
+})();
 
 /* ── 11. Copier + toast ───────────────────────── */
 var toast = $('#toast'), toastT;
